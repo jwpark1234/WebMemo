@@ -1,0 +1,37 @@
+create table User (
+userId varchar(12) primary key,
+pw varchar(12) not null,
+name varchar(10) not null,
+address varchar(50) not null,
+email varchar(20) not null,
+phone varchar(13) );
+
+
+create table Memo (
+memoNum int auto_increment primary key,
+userId varchar(12) not null,
+subject varchar(100),
+content varchar(1000),
+regdate Timestamp null default current_timestamp,
+favoriteYN varchar(1),
+color varchar(10));
+
+
+create table Share (
+memoNum int not null,
+userId varchar(12) not null,
+sharedFavYN varchar(1),
+primary key(memoNum, userId)); 
+
+
+create table Board (
+num int auto_increment primary key,
+name varchar(10) not null,
+email varchar(20),
+subject varchar(100) not null,
+content varchar(5000) not null,
+pw varchar(20) not null,
+count int,
+regdate Timestamp null default current_timestamp,
+pos int,
+depth int );

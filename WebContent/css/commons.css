@@ -1,0 +1,507 @@
+@CHARSET "UTF-8";
+@font-face {
+ font-family: 'NanumSquareRoundR';
+ src: url(../fonts/NanumSquareRoundR.eot);
+ src: url(../fonts/NanumSquareRoundR.eot?#iefix) format('embedded-opentype'),
+      url(../fonts/NanumSquareRoundR.woff) format('woff'),
+      url(../fonts/NanumSquareRoundR.ttf) format('truetype');
+}
+
+/**************************공통 속성************************/
+* {
+	box-sizing: border-box; /*margin, border, padding을 포함해 모든 항목의 크기를 같게한다.*/ 
+	font-family:'NanumSquareRoundR',sans-serif;
+}
+
+textarea { /* 게시글 작성 영역*/
+ 	resize: none;	/* 사이즈 조절 불가 */
+ 	width:100%;
+}
+
+html { /*footer를 하단에 고정시키기 위해 높이값을 지정해준다.*/
+	height: 100%;
+}
+
+body { /*footer를 하단에 고정시키기 위해 높이값을 지정해준다.*/
+	margin: 0;
+	height: 100%;
+}
+
+.wrap { /*header + 내용 + footer를 wrapping하여 최소높이값을 지정*/
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 95px; /*footer의 높이*/
+}
+
+a { /*a 태그 기본 설정*/
+	color:#333333;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus { /*a 태그에 마우스를 올리거나 포커스가 있을 경우*/
+	font-weight:bold;
+	color: #333333;
+	curser:pointer;	/*커서 모양은 손가락 모양*/
+}
+
+.btn-danger { /*부트스트랩 danger버튼 색상 조절*/
+	background-color: red;
+}
+
+.controls>input,
+.controls>textarea { /*input,textarea 태그 설정*/
+	margin:5px 0px;	
+	align:center;
+}
+
+.form-control-static { /*읽기전용 input,textarea 영역*/
+	font-weight: bold;
+	color:#333333;
+	font-size: 1.2em;
+}
+
+/**********************공통 속성 끝***********************/
+
+
+/*********************내비게이션 바 ***********************/
+#logo {
+	font-size:1.5em;
+	font-weight: bolder;
+	color:red;
+}
+
+.navbar-default { /* 기본 내비게이션 바 설정*/
+	background-color: white;
+	padding-left: 15%;
+	padding-right: 15%;
+	border:none;
+	border-radius:0px;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar-default .navbar-nav > li > a { /*내비게이션 바의 a태그*/
+	font-size:1.2em;
+	background-color: white;
+	border-bottom: white solid 5px;
+}
+
+.navbar-default .navbar-nav > li > a:hover { /* 내비게이션 바의 a태그에 마우스를 올렸을 때*/
+	border-bottom: white solid 5px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover { /* 내비게이션 바의 현재 선택된 a태그*/
+	font-size:1.2em;
+	font-weight:bold;
+	color:#333333;
+	background-color: white;
+	border-bottom: red solid 5px;
+}
+
+.navbar-default .navbar-toggle { /*작은 화면 시 나오는 토글메뉴 설정*/
+	border:none;
+	background-color:white;
+}
+
+.navbar-default .navbar-toggle:hover { /*토글메뉴 버튼에 마우스를 올릴 경우*/
+	background-color:#eeeeee;
+}
+
+.navbar-default .navbar-toggle .icon-bar { /*토글메뉴 버튼에 3개의 가로줄 설정*/
+	background-color: red;
+}
+
+@media (max-width:767px) { /*작은 화면 일때*/
+	.navbar-default { /* 기본 내비게이션 바 설정*/
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.navbar-default .navbar-nav > li > a { /*내비게이션 바의 a태그*/
+		border-left: white solid 5px;
+	}
+	.navbar-default .navbar-nav > .active > a,
+	.navbar-default .navbar-nav > .active > a:hover,
+	.navbar-default .navbar-nav > .active > a:focus  { /* 현재 선택된 내비게이션 바의 a태그*/
+		border-left: red solid 5px;
+		border-bottom : white solid 5px;
+	}
+	.navbar-default .navbar-nav > li > a:hover,
+	.navbar-default .navbar-nav > li > a:focus { /* 내비게이션 바 a태그에 마우스를 올렸을 때*/
+		border-left: white solid 5px;
+		border-bottom : white solid 5px;
+	}
+}
+/**************************내비게이션 바 끝 **************************/
+
+
+/*****************로그인, 회원가입, 회원정보, 회원정보 수정 모달***********/
+#myTab {
+	font-size: 1.2em;
+}
+
+#myinfoModal .modal-header,
+#editInfoModal .modal-header,
+#emailAuthModal .modal-header { /*모달의 헤더(제목)부분 설정*/
+	font-weight: bold;
+	color:white;
+	text-align: center;
+	background-color: red;
+	border-radius:5px;
+	font-size: 1.2em;
+}
+
+#myTab a:hover { /*모달 탭의 마우스를 올릴 경우*/
+	background-color: white;
+}
+
+#myTab .active a { /*선택된 모달 탭 설정*/
+	background-color: red;
+	font-weight: bold;
+}
+
+#join_userId,
+#join_pw,
+#join_pw_confirm,
+#join_name,
+#join_email,
+#join_phone,
+#myinfo_userId,
+#myinfo_pw,
+#myinfo_pw_confirm,
+#myinfo_name,
+#myinfo_email,
+#myinfo_phone { /*회원가입, 회원정보수정 input영역 설정*/
+	width:65%;
+}
+
+#join_postcode,
+#myinfo_postcode { /*주소 input영역 설정*/
+	width:100px; /*주소입력창은 길게 설정*/
+}
+
+#myinfo { /*회원정보 확인 모달의 기본 글자 색상*/
+	color:#777777;
+	font-size: 1.1em;
+}
+
+/*****************로그인, 회원가입, 회원정보, 회원정보 수정 모달 끝***********/
+
+
+/**************************메인 페이지********************************/
+.jumbotron { /*jumbotron : 메인페이지의 이미지와 글자를 보여주는 영역*/
+  position:relative;
+  padding-top:50px;
+  padding-bottom:50px;
+  height:508px;
+}
+
+.mainImg { /*메인 이미지 설정 */
+    opacity: 0.4; /*투명도 설정*/
+    background: #000 url("../img/main.jpg") center center no-repeat;
+    width: 100%;
+    height: 100%;
+    border-radius:10px;
+    background-size: cover;
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1; /*이미지는 z값이 1*/
+}
+
+.jumbotron .container { /*점보트론 내부의 글자 영역 설정*/
+  position:relative;
+  z-index:2; /*내부 글자는 z값이 2 : 이미지영역의 z값보다 크기때문에 글자는 투명도가 적용되지 않는다.*/
+}
+
+.jumbotron .container h1,
+.jumbotron .container p { /*글자의 그림자 설정*/
+	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}
+
+/*****************************메인 페이지 끝**************************/
+
+
+/****************************메모 페이지****************************/
+#memoTab a { /*메모 탭 설정(즐겨찾기, 모든 메모, 내 메모, 공유받은 메모, 공유한 메모)*/
+	background-color: white;
+}
+
+#memoTab .active a { /*현재 선택된 탭*/
+	background-color:red;
+	font-weight: bold;
+}
+
+#memoPanel { /*메모 페이지의 배경이미지에 투명도를 주기 위한 설정*/
+	position: relative; 
+}
+
+#memoPanel:after { /*메모 페이지의 배경이미지에 투명도를 주기 위한 설정*/
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+	border-radius:10px;
+	background-image: url("../img/background.jpg");
+	opacity:0.6;
+	width: 100%;
+    height: 100%;
+	z-index: -1; /*배경이미지의 z값을 -1로 설정하면 일반 태그들의 z값인 0보다 작으므로 배경이미지만 투명도가 적용됨*/
+}
+
+#myFavList,
+#myTotalList,
+#myMemoList,
+#mySharedList,
+#mySharingList { /*메모 리스트 설정*/
+	min-height:687px;
+}
+
+.thumbnail { /*메모 1개의 설정*/
+	background-color: #ffffcc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border:none;
+}
+
+.thumbnail:hover { /*메모 1개에 마우스를 올렸을 경우*/
+	margin-top: -4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+	padding-bottom: 8px;
+}
+
+.thumbnail a:hover { /*메모 안에 a태그 설정*/
+	text-decoration: none;
+}
+
+.thumbnail .glyphicon { /*메모 안에 아이콘 설정*/
+	color:#333333;
+	font-size: 1.5em;
+}
+
+/*메모 색상 선택 라디오버튼 설정*/
+input[type="radio"] { /*기본 라디오 버튼 모양 설정*/
+    display:none;
+}
+
+input[type="radio"] + label span { /*라디오 버튼의 span영역 설정*/
+    display:inline-block;
+    width:30px;
+    height:30px;
+    border:black dashed 1px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+/*라디오 버튼 마다 색상그림 설정*/
+#default + label span {
+	background-image: url("../img/default.png");
+}
+
+#White + label span {
+	background-image: url("../img/white.png");
+}
+
+#Cyan + label span {
+	background-image: url("../img/cyan.png");
+}
+
+#Magenta + label span {
+	background-image: url("../img/magenta.png");
+}
+
+#Yellow + label span {
+	background-image: url("../img/yellow.png");
+}
+
+#OrangeRed + label span {
+	background-image: url("../img/red.png");
+}
+
+#Green + label span {
+	background-image: url("../img/green.png");
+}
+
+#DodgerBlue + label span {
+	background-image: url("../img/blue.png");
+}
+/*라디오 버튼마다 색상 그림 설정*/
+
+input[type="radio"]:checked + label span { /*선택한 라디오버튼 표시*/
+	border:black solid 3px;
+}
+
+.glyphicon-star {
+	color:gold;
+}
+
+.memoInfo { /*메모의 세부정보(작성 시간, 공유한 사람) 영역 설정*/
+	color:#333333;
+	font-size: 1.2em;
+}
+
+div>.memoInfo { /*메모의 세부정보(작성 시간, 공유한 사람) 영역 설정*/
+	color:#333333;
+	font-size: 0.9em;
+}
+
+.noMemo { /*메모가 하나도 없을 경우 표시되는 태그 설정*/
+	margin-top: 0;
+	box-shadow:none;
+	padding-bottom: 0;
+}
+
+.noMemo:hover { /*메모가 하나도 없을 경우 표시되는 태그 설정*/
+	margin-top: 0;
+	box-shadow:none;
+	padding-bottom: 0;
+}
+
+.message { /*메모가 하나도 없을 경우 표시되는 메세지 영역 설정*/
+	height:650px;
+	width:100%;
+}
+
+.message td { /*메모가 하나도 없을 경우 표시되는 메세지 영역 설정*/
+	vertical-align: middle;
+	align:center;
+	font-size: 1.5em;
+	font-weight: bold;
+	color:black;
+}
+
+.memoFrame { /*메모의 제목, 내용부분. 실제 사용자가 메모를 클릭할 수 있는 부분*/
+	min-height:200px;
+}
+
+.memoFrame h4 { /*메모의 제목*/
+	overflow: hidden; /*제목이 너무 길면 ..으로 숨긴다.*/
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	width: 300px;
+}
+
+/*반응형 메모페이지를 위한 설정 - 모바일 화면일때는 메모배경의 높이를 줄임, 메모색상 영역 배치를 조절함*/
+@media all and (max-width:767px){
+	#myFavList,
+	#myTotalList,
+	#myMemoList,
+	#mySharedList,
+	#mySharingList {min-height:300px;}
+	.message {height:300px;}
+	#colorbox {
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+}
+/************************메모 페이지 끝****************************/
+
+
+/*******************메모 페이지의 우측 하단 내비게이션 버튼*******************/
+.nav_button {
+	position:fixed; /*항상 위치를 고정시킴*/
+	bottom:20px;
+	right:20px;
+}
+
+.nav_button img {
+	width:48px;
+	margin:1px;
+}
+/*******************메모 페이지의 우측 하단 내비게이션 버튼 끝*****************/
+
+
+/***************************질문게시판 페이지****************************/
+#qnaPanel { /*질문게시판 페이지의 배경이미지에 투명도를 주기 위한 설정*/
+	position: relative; 
+}
+
+#qnaPanel:after { /*질문게시판 페이지의 배경이미지에 투명도를 주기 위한 설정*/
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+	border-radius:10px;
+	background-image: url("../img/background.jpg");
+	opacity:0.6;
+	width: 100%;
+    height: 100%;
+	z-index: -1;
+}
+
+#boardPanel { /*게시판의 실제 영역*/
+	margin-bottom:15px;
+	padding:15px;
+	background-color:white; /*가독성을 위해 배경색을 흰색으로 설정*/
+	border-radius:5px;
+	border: #bbbbbb solid 1px;
+	min-height:615px;
+	height:auto;
+}
+
+thead { /*게시판 리스트의 칼럼명(번호, 제목, 작성자, 작성일, 조회수)*/
+	height: 30px;
+	font-weight: bold; 
+}
+
+tbody { /*게시판 리스트의 게시글*/
+	font-size:0.8em;
+}
+#qnaboard {
+	table-layout:fixed;
+}
+#qnaboard .list_subject { /*게시판 리스트의 게시글 제목 설정*/
+	width:45%;
+	overflow: hidden; 
+	text-overflow: ellipsis; /*제목이 너무 길어지면 ..으로 숨김*/
+	white-space:nowrap;
+}
+
+#read_title { /*게시글 읽기창에서 게시글 제목 설정*/
+	word-break:break-all;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.summernote {
+	width:100%;
+}
+
+.pagination > .active > a,
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus { /*페이징 영역 설정*/
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: red;
+    border-color: red;
+}
+
+/*반응형 게시판리스트를 위한 설정 - 모바일 화면일때는 필요한 칼럼만 표시하고 가로 비율을 조절함*/
+@media all and (max-width:767px){
+	.list_date {display:none}
+	.list_count {display:none}
+	.list_index {width:20% !important;}
+	.list_subject {width:60% !important;}
+	.list_name {width:20% !important;}
+	#read_title {width:70% !important;}
+}
+
+/*************************질문게시판 페이지 끝**************************/
+
+
+/******************************footer*****************************/
+footer {
+	position: absolute;
+	bottom: 0; /*항상 하단에 고정시킴*/
+	left: 0;
+	right: 0;
+	border:none;
+	background-color:white;
+	box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.4);
+	color:#777777;
+}
+/****************************footer 끝*****************************/
